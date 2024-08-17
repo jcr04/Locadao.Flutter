@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:locadao/views/veiculo_list_view.dart';
 import 'agencia_list_view.dart';
 // import 'aluguel_list_view.dart';
-// import 'veiculo_list_view.dart';
 // import 'cliente_list_view.dart';
 
 class HomePage extends StatelessWidget {
@@ -26,6 +26,16 @@ class HomePage extends StatelessWidget {
                 );
               },
             ),
+            MenuButton(
+              title: 'Veículos',
+              icon: Icons.directions_car,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => VeiculoListView()),
+                );
+              },
+            ),
             // MenuButton(
             //   title: 'Aluguéis',
             //   icon: Icons.car_rental,
@@ -33,16 +43,6 @@ class HomePage extends StatelessWidget {
             //     Navigator.push(
             //       context,
             //       MaterialPageRoute(builder: (context) => AluguelListView()),
-            //     );
-            //   },
-            // ),
-            // MenuButton(
-            //   title: 'Veículos',
-            //   icon: Icons.directions_car,
-            //   onTap: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => VeiculoListView()),
             //     );
             //   },
             // ),
