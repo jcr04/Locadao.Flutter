@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:locadao/services/api_service.dart';
 import 'package:locadao/models/Veiculo.dart';
+import 'package:locadao/services/api_services_veiculos.dart';
 import 'package:locadao/views/veiculo_detalhes_view.dart';
 import 'package:locadao/widgets/logo_header.dart';
 
@@ -10,7 +10,7 @@ class VeiculoListView extends StatefulWidget {
 }
 
 class _VeiculoListViewState extends State<VeiculoListView> {
-  final ApiService _apiService = ApiService();
+  final ApiServicesVeiculos _apiService = ApiServicesVeiculos();
   late Future<List<Veiculo>> _veiculos;
 
   @override
@@ -29,6 +29,7 @@ class _VeiculoListViewState extends State<VeiculoListView> {
         children: [
           const ImageHeaderWidget(
             imagePath: 'lib/assets/locadao.png',
+            height: 100.0,
           ),
           Expanded(
             child: FutureBuilder<List<Veiculo>>(

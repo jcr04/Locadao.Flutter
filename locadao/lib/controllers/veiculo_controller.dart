@@ -1,9 +1,9 @@
+import 'package:locadao/services/api_services_veiculos.dart';
 import 'package:locadao/models/Veiculo.dart';
 import 'package:locadao/models/VeiculoDetalhes.dart';
-import '../services/api_service.dart';
 
 class VeiculoController {
-  final ApiService _apiService = ApiService();
+  final ApiServicesVeiculos _apiService = ApiServicesVeiculos();
 
   Future<List<Veiculo>> getVeiculosDisponiveis() async {
     return await _apiService.getVeiculosDisponiveis();

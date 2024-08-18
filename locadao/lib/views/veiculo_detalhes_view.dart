@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/models/VeiculoDetalhes.dart';
-import 'package:locadao/services/api_service.dart';
+import 'package:locadao/services/api_services_veiculos.dart';
 
 class VeiculoDetalhesView extends StatelessWidget {
   final String veiculoId;
@@ -9,7 +9,7 @@ class VeiculoDetalhesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ApiService _apiService = ApiService();
+    final ApiServicesVeiculos _apiService = ApiServicesVeiculos();
 
     return Scaffold(
       appBar: AppBar(
@@ -49,8 +49,6 @@ class VeiculoDetalhesView extends StatelessWidget {
                       style: const TextStyle(fontSize: 18)),
                   Text(
                       'Adaptado para PCD: ${veiculo.adaptadoParaPCD ? "Sim" : "Não"}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Agência ID: ${veiculo.agenciaId}',
                       style: const TextStyle(fontSize: 18)),
                 ],
               ),

@@ -1,10 +1,9 @@
+import 'package:locadao/services/api_services_agencias.dart';
 import 'package:locadao/models/AgenciaDetalhes.dart';
-
 import '../models/agencia.dart';
-import '../services/api_service.dart';
 
 class AgenciaController {
-  final ApiService _apiService = ApiService();
+  final ApiServicesAgencias _apiService = ApiServicesAgencias();
 
   Future<List<Agencia>> getAgencias() async {
     return await _apiService.getAgencias();

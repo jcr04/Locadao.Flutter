@@ -19,12 +19,24 @@ class Aluguel {
 
   factory Aluguel.fromJson(Map<String, dynamic> json) {
     return Aluguel(
-      id: json['id'],
-      dataInicio: DateTime.parse(json['dataInicio']),
-      dataFim: DateTime.parse(json['dataFim']),
-      valor: json['valor'].toDouble(),
-      status: json['status'],
-      veiculo: Veiculo.fromJson(json['veiculo']),
+      id: json['id'] ?? '',
+      dataInicio:
+          DateTime.parse(json['dataInicio'] ?? DateTime.now().toString()),
+      dataFim: DateTime.parse(json['dataFim'] ?? DateTime.now().toString()),
+      valor: json['valor']?.toDouble() ?? 0.0,
+      status: json['status'] ?? '',
+      veiculo: Veiculo.fromJson(json['veiculo'] ?? {}),
     );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'dataInicio': dataInicio.toIso8601String(),
+      'dataFim': dataFim.toIso8601String(),
+      'valor': valor,
+      'status': status,
+      'veiculo': veiculo.toJson(),
+    };
   }
 }

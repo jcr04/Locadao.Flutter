@@ -1,62 +1,77 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
+import 'package:locadao/widgets/logo_header.dart';
 import 'agencia_list_view.dart';
-// import 'aluguel_list_view.dart';
-// import 'cliente_list_view.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Locadão - Menu Principal'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MenuButton(
-              title: 'Agências',
-              icon: Icons.location_city,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => AgenciaListView()),
-                );
-              },
+      body: Column(
+        children: [
+          // Adicionando o widget modularizado de header com a logo
+          const ImageHeaderWidget(
+            imagePath: 'lib/assets/locadao.png',
+            height: 100.0,
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  MenuButton(
+                    title: 'Agências',
+                    icon: Icons.location_city,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AgenciaListView()),
+                      );
+                    },
+                  ),
+                  MenuButton(
+                    title: 'Veículos',
+                    icon: Icons.directions_car,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => VeiculoListView()),
+                      );
+                    },
+                  ),
+                  // MenuButton(
+                  //   title: 'Aluguéis',
+                  //   icon: Icons.car_rental,
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => AluguelListView()),
+                  //     );
+                  //   },
+                  // ),
+                  // MenuButton(
+                  //   title: 'Clientes',
+                  //   icon: Icons.person,
+                  //   onTap: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute(builder: (context) => ClienteListView()),
+                  //     );
+                  //   },
+                  // ),
+                ],
+              ),
             ),
-            MenuButton(
-              title: 'Veículos',
-              icon: Icons.directions_car,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => VeiculoListView()),
-                );
-              },
-            ),
-            // MenuButton(
-            //   title: 'Aluguéis',
-            //   icon: Icons.car_rental,
-            //   onTap: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => AluguelListView()),
-            //     );
-            //   },
-            // ),
-            // MenuButton(
-            //   title: 'Clientes',
-            //   icon: Icons.person,
-            //   onTap: () {
-            //     Navigator.push(
-            //       context,
-            //       MaterialPageRoute(builder: (context) => ClienteListView()),
-            //     );
-            //   },
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -67,7 +82,11 @@ class MenuButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  MenuButton({required this.title, required this.icon, required this.onTap});
+  const MenuButton(
+      {super.key,
+      required this.title,
+      required this.icon,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {

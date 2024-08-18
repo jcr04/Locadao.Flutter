@@ -14,10 +14,11 @@ class AgenciaDetalhes {
 
   factory AgenciaDetalhes.fromJson(Map<String, dynamic> json) {
     return AgenciaDetalhes(
-      agencia: Agencia.fromJson(json['agencia']),
-      numeroVeiculos: json['numeroVeiculos'],
-      alugueis:
-          (json['alugueis'] as List).map((a) => Aluguel.fromJson(a)).toList(),
+      agencia: Agencia.fromJson(json['agencia'] ?? {}),
+      numeroVeiculos: json['numeroVeiculos'] ?? 0,
+      alugueis: (json['alugueis'] as List)
+          .map((aluguel) => Aluguel.fromJson(aluguel))
+          .toList(),
     );
   }
 }

@@ -8,8 +8,8 @@ class ImageHeaderWidget extends StatelessWidget {
   const ImageHeaderWidget({
     super.key,
     required this.imagePath,
-    this.height = 200.0,
-    this.backgroundColor = Colors.blue, // Define a cor de fundo como azul
+    this.height = 150.0,
+    this.backgroundColor = const Color.fromARGB(255, 70, 17, 131),
   });
 
   @override
@@ -17,12 +17,16 @@ class ImageHeaderWidget extends StatelessWidget {
     return Container(
       height: height,
       width: double.infinity,
-      color: backgroundColor, // Cor de fundo azul
+      color: backgroundColor,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Image.asset(
-          imagePath,
-          fit: BoxFit.contain,
+        padding: const EdgeInsets.all(16.0),
+        child: Align(
+          alignment: Alignment.centerLeft,
+          child: Image.asset(
+            imagePath,
+            fit: BoxFit.contain,
+            height: height * 0.8,
+          ),
         ),
       ),
     );
