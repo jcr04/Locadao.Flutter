@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:locadao/models/AgenciaDetalhes.dart';
 import 'package:locadao/models/Aluguel.dart';
 import 'package:locadao/widgets/logo_header.dart';
+import 'package:locadao/widgets/agencia_card_widget.dart';
 import '../controllers/agencia_controller.dart';
 
 class AgenciaListView extends StatefulWidget {
@@ -21,14 +22,17 @@ class _AgenciaListViewState extends State<AgenciaListView> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
+
     return Scaffold(
       appBar: AppBar(title: const Text('Detalhes das Agências')),
       body: Column(
         children: [
-          // Adicionando o widget modularizado de header com a logo
-          const ImageHeaderWidget(
+          ImageHeaderWidget(
             imagePath: 'lib/assets/locadao.png',
-            height: 100.0,
+            height: isPortrait ? screenHeight * 0.15 : screenHeight * 0.2,
           ),
           Expanded(
             child: FutureBuilder<List<AgenciaDetalhes>>(
@@ -46,33 +50,21 @@ class _AgenciaListViewState extends State<AgenciaListView> {
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
                       var agenciaDetalhes = snapshot.data![index];
-                      return Card(
-                        margin: const EdgeInsets.all(8.0),
-                        child: Padding(
-                          padding: const EdgeInsets.all(16.0),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(agenciaDetalhes.agencia.nome,
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .headlineSmall),
-                              Text('ID: ${agenciaDetalhes.agencia.id}'),
-                              Text(
-                                  'Endereço: ${agenciaDetalhes.agencia.endereco}'),
-                              Text(
-                                  'Telefone: ${agenciaDetalhes.agencia.telefone}'),
-                              Text(
-                                  'Número de Veículos: ${agenciaDetalhes.numeroVeiculos}'),
-                              const SizedBox(height: 16),
-                              Text('Aluguéis',
-                                  style:
-                                      Theme.of(context).textTheme.titleMedium),
-                              ...agenciaDetalhes.alugueis
-                                  .map((aluguel) => _buildAluguelItem(aluguel)),
-                            ],
-                          ),
-                        ),
+                      return AgenciaCardWidget(
+                        title: agenciaDetalhes.agencia.nome,
+                        id: agenciaDetalhes.agencia.id,
+                        endereco: agenciaDetalhes.agencia.endereco,
+                        telefone: agenciaDetalhes.agencia.telefone,
+                        numeroVeiculos:
+                            agenciaDetalhes.numeroVeiculos.toString(),
+                        gradientStartColor: Colors.deepPurple,
+                        gradientEndColor: Colors.purple,
+                        aluguelInfo: agenciaDetalhes.alugueis.isEmpty
+                            ? null
+                            : agenciaDetalhes.alugueis
+                                .map(
+                                    (aluguel) => _buildAluguelItemInfo(aluguel))
+                                .join("\n\n"),
                       );
                     },
                   );
@@ -85,25 +77,13 @@ class _AgenciaListViewState extends State<AgenciaListView> {
     );
   }
 
-  Widget _buildAluguelItem(Aluguel aluguel) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('ID do Aluguel: ${aluguel.id}'),
-            Text('Data de Início: ${_formatDate(aluguel.dataInicio)}'),
-            Text('Data de Fim: ${_formatDate(aluguel.dataFim)}'),
-            Text('Valor: ${aluguel.valor}'),
-            Text('Status: ${aluguel.status}'),
-            Text(
-                'Veículo: ${aluguel.veiculo.marca} ${aluguel.veiculo.modelo} (Placa: ${aluguel.veiculo.placa})'),
-          ],
-        ),
-      ),
-    );
+  String _buildAluguelItemInfo(Aluguel aluguel) {
+    return 'ID do Aluguel: ${aluguel.id}\n'
+        'Início: ${_formatDate(aluguel.dataInicio)}\n'
+        'Fim: ${_formatDate(aluguel.dataFim)}\n'
+        'Valor: ${aluguel.valor}\n'
+        'Status: ${aluguel.status}\n'
+        'Veículo: ${aluguel.veiculo.marca} ${aluguel.veiculo.modelo} (Placa: ${aluguel.veiculo.placa})';
   }
 
   String _formatDate(DateTime date) {

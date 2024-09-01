@@ -1,31 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
+import 'package:locadao/views/agencia_list_view.dart';
 import 'package:locadao/widgets/logo_header.dart';
-import 'agencia_list_view.dart';
+import 'package:locadao/widgets/menu_card_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isPortrait =
+        MediaQuery.of(context).orientation == Orientation.portrait;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Locadão - Menu Principal'),
+        backgroundColor: Colors.deepPurple,
       ),
       body: Column(
         children: [
-          // Adicionando o widget modularizado de header com a logo
-          const ImageHeaderWidget(
+          ImageHeaderWidget(
             imagePath: 'lib/assets/locadao.png',
-            height: 100.0,
+            height: isPortrait ? screenHeight * 0.10 : screenHeight * 0.15,
+            backgroundColor: Colors.deepPurple,
           ),
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              padding: EdgeInsets.all(screenWidth * 0.04),
+              child: GridView.count(
+                crossAxisCount: isPortrait ? 4 : 3,
+                crossAxisSpacing: screenWidth * 0.035,
+                mainAxisSpacing: screenHeight * 0.025,
                 children: <Widget>[
-                  MenuButton(
+                  MenuCardWidget(
                     title: 'Agências',
                     icon: Icons.location_city,
                     onTap: () {
@@ -36,7 +44,7 @@ class HomePage extends StatelessWidget {
                       );
                     },
                   ),
-                  MenuButton(
+                  MenuCardWidget(
                     title: 'Veículos',
                     icon: Icons.directions_car,
                     onTap: () {
@@ -47,7 +55,8 @@ class HomePage extends StatelessWidget {
                       );
                     },
                   ),
-                  // MenuButton(
+                  // Exemplo de outros botões que podem ser adicionados no futuro
+                  // MenuCardWidget(
                   //   title: 'Aluguéis',
                   //   icon: Icons.car_rental,
                   //   onTap: () {
@@ -57,7 +66,7 @@ class HomePage extends StatelessWidget {
                   //     );
                   //   },
                   // ),
-                  // MenuButton(
+                  // MenuCardWidget(
                   //   title: 'Clientes',
                   //   icon: Icons.person,
                   //   onTap: () {
@@ -94,10 +103,10 @@ class MenuButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: ElevatedButton.icon(
         onPressed: onTap,
-        icon: Icon(icon, size: 40),
+        icon: Icon(icon, size: 20),
         label: Text(
           title,
-          style: const TextStyle(fontSize: 20),
+          style: const TextStyle(fontSize: 10),
         ),
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.all(16),

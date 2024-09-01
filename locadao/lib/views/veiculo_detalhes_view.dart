@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/models/VeiculoDetalhes.dart';
 import 'package:locadao/services/api_services_veiculos.dart';
+import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 
 class VeiculoDetalhesView extends StatelessWidget {
   final String veiculoId;
@@ -10,6 +11,7 @@ class VeiculoDetalhesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ApiServicesVeiculos _apiService = ApiServicesVeiculos();
+    final screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       appBar: AppBar(
@@ -27,29 +29,59 @@ class VeiculoDetalhesView extends StatelessWidget {
           } else {
             var veiculo = snapshot.data!;
             return Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(screenWidth * 0.02),
               child: ListView(
                 children: [
-                  Text('Marca: ${veiculo.marca}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Modelo: ${veiculo.modelo}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Ano de Fabricação: ${veiculo.anoFabricacao}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Placa: ${veiculo.placa}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Cor: ${veiculo.cor}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Quilometragem: ${veiculo.quilometragem}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text('Automático: ${veiculo.automatico ? "Sim" : "Não"}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text(
-                      'Disponível para Aluguel: ${veiculo.disponivelParaAluguel ? "Sim" : "Não"}',
-                      style: const TextStyle(fontSize: 18)),
-                  Text(
-                      'Adaptado para PCD: ${veiculo.adaptadoParaPCD ? "Sim" : "Não"}',
-                      style: const TextStyle(fontSize: 18)),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.speed,
+                    title: '${veiculo.quilometragem} km',
+                    subtitle: 'Quilometragem',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.settings,
+                    title: veiculo.automatico ? "Automático" : "Manual",
+                    subtitle: 'Tipo de Transmissão',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.accessible,
+                    title: veiculo.adaptadoParaPCD
+                        ? "Adaptado para PCD"
+                        : "Não Adaptado",
+                    subtitle: 'Acessibilidade',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.directions_car,
+                    title: veiculo.marca,
+                    subtitle: 'Marca',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.model_training,
+                    title: veiculo.modelo,
+                    subtitle: 'Modelo',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.calendar_today,
+                    title: veiculo.anoFabricacao.toString(),
+                    subtitle: 'Ano de Fabricação',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.confirmation_number,
+                    title: veiculo.placa,
+                    subtitle: 'Placa',
+                    onTap: () {},
+                  ),
+                  VehicleFeatureCardWidget(
+                    icon: Icons.color_lens,
+                    title: veiculo.cor,
+                    subtitle: 'Cor',
+                    onTap: () {},
+                  ),
                 ],
               ),
             );

@@ -8,7 +8,7 @@ class ImageHeaderWidget extends StatelessWidget {
   const ImageHeaderWidget({
     super.key,
     required this.imagePath,
-    this.height = 150.0,
+    this.height = 100.0,
     this.backgroundColor = const Color.fromARGB(255, 70, 17, 131),
   });
 
@@ -19,7 +19,7 @@ class ImageHeaderWidget extends StatelessWidget {
       width: double.infinity,
       color: backgroundColor,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(7.0),
         child: Align(
           alignment: Alignment.centerLeft,
           child: Image.asset(
