@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
 import 'package:locadao/views/agencia_list_view.dart';
+import 'package:locadao/views/aluguel_list_view.dart'; // Importar a nova tela
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/menu_card_widget.dart';
 
@@ -29,7 +30,7 @@ class HomePage extends StatelessWidget {
             child: Padding(
               padding: EdgeInsets.all(screenWidth * 0.04),
               child: GridView.count(
-                crossAxisCount: isPortrait ? 4 : 3,
+                crossAxisCount: isPortrait ? 2 : 3,
                 crossAxisSpacing: screenWidth * 0.035,
                 mainAxisSpacing: screenHeight * 0.025,
                 children: <Widget>[
@@ -55,27 +56,18 @@ class HomePage extends StatelessWidget {
                       );
                     },
                   ),
-                  // Exemplo de outros botões que podem ser adicionados no futuro
-                  // MenuCardWidget(
-                  //   title: 'Aluguéis',
-                  //   icon: Icons.car_rental,
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(builder: (context) => AluguelListView()),
-                  //     );
-                  //   },
-                  // ),
-                  // MenuCardWidget(
-                  //   title: 'Clientes',
-                  //   icon: Icons.person,
-                  //   onTap: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(builder: (context) => ClienteListView()),
-                  //     );
-                  //   },
-                  // ),
+                  MenuCardWidget(
+                    title: 'Aluguéis',
+                    icon: Icons.car_rental,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AluguelListView()),
+                      );
+                    },
+                  ),
+                  // Outros botões podem ser adicionados aqui
                 ],
               ),
             ),

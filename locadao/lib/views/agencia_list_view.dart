@@ -83,7 +83,7 @@ class _AgenciaListViewState extends State<AgenciaListView> {
         'Fim: ${_formatDate(aluguel.dataFim)}\n'
         'Valor: ${aluguel.valor}\n'
         'Status: ${aluguel.status}\n'
-        'Veículo: ${aluguel.veiculo.marca} ${aluguel.veiculo.modelo} (Placa: ${aluguel.veiculo.placa})';
+        'Veículo: ${aluguel.veiculo != null ? '${aluguel.veiculo!.marca} ${aluguel.veiculo!.modelo} (Placa: ${aluguel.veiculo!.placa})' : 'Informação do veículo não disponível'}';
   }
 
   String _formatDate(DateTime date) {
