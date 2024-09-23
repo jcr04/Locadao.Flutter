@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:locadao/views/cliente_create_view.dart';
+import 'package:locadao/views/cliente_list_view.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
 import 'package:locadao/views/agencia_list_view.dart';
-import 'package:locadao/views/aluguel_list_view.dart'; // Importar a nova tela
+import 'package:locadao/views/aluguel_list_view.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/menu_card_widget.dart';
 
@@ -11,65 +13,93 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
+    final double headerHeight = screenWidth * 0.1;
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
       ),
-      body: Column(
+      body: Stack(
         children: [
-          ImageHeaderWidget(
-            imagePath: 'lib/assets/locadao.png',
-            height: isPortrait ? screenHeight * 0.10 : screenHeight * 0.15,
-            backgroundColor: Colors.deepPurple,
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.all(screenWidth * 0.04),
-              child: GridView.count(
-                crossAxisCount: isPortrait ? 2 : 3,
-                crossAxisSpacing: screenWidth * 0.035,
-                mainAxisSpacing: screenHeight * 0.025,
-                children: <Widget>[
-                  MenuCardWidget(
-                    title: 'Agências',
-                    icon: Icons.location_city,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AgenciaListView()),
-                      );
-                    },
-                  ),
-                  MenuCardWidget(
-                    title: 'Veículos',
-                    icon: Icons.directions_car,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => VeiculoListView()),
-                      );
-                    },
-                  ),
-                  MenuCardWidget(
-                    title: 'Aluguéis',
-                    icon: Icons.car_rental,
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => AluguelListView()),
-                      );
-                    },
-                  ),
-                  // Outros botões podem ser adicionados aqui
-                ],
+          Column(
+            children: [
+              ImageHeaderWidget(
+                imagePath: 'lib/assets/locadao.png',
+                height: headerHeight,
+                backgroundColor: Colors.deepPurple,
               ),
+              Expanded(
+                child: Padding(
+                  padding: EdgeInsets.all(screenWidth * 0.07),
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: screenWidth * 0.035,
+                    mainAxisSpacing: screenWidth * 0.035,
+                    children: <Widget>[
+                      MenuCardWidget(
+                        title: 'Agências',
+                        icon: Icons.location_city,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AgenciaListView()),
+                          );
+                        },
+                      ),
+                      MenuCardWidget(
+                        title: 'Veículos',
+                        icon: Icons.directions_car,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VeiculoListView()),
+                          );
+                        },
+                      ),
+                      MenuCardWidget(
+                        title: 'Aluguéis',
+                        icon: Icons.car_rental,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => AluguelListView()),
+                          );
+                        },
+                      ),
+                      MenuCardWidget(
+                        title: 'Clientes',
+                        icon: Icons.person,
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => ClienteListView()),
+                          );
+                        },
+                      ),
+                      // Outros botões podem ser adicionados aqui
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          Positioned(
+            top: headerHeight - 5.0,
+            right: 16.0,
+            child: FloatingActionButton(
+              backgroundColor: Colors.deepPurple,
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ClienteCreateView()),
+                );
+              },
+              tooltip: 'Criar Cliente',
+              child: const Icon(Icons.person_add),
             ),
           ),
         ],

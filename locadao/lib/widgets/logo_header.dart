@@ -18,15 +18,11 @@ class ImageHeaderWidget extends StatelessWidget {
       height: height,
       width: double.infinity,
       color: backgroundColor,
-      child: Padding(
-        padding: const EdgeInsets.all(7.0),
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: Image.asset(
-            imagePath,
-            fit: BoxFit.contain,
-            height: height * 0.8,
-          ),
+      child: Center(
+        child: Image.asset(
+          imagePath,
+          fit: BoxFit.contain,
+          // Removemos o parâmetro height para permitir que a imagem se ajuste
         ),
       ),
     );
