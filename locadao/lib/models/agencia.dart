@@ -18,15 +18,20 @@ class Agencia {
   });
 
   factory Agencia.fromJson(Map<String, dynamic> json) {
+    Map<String, dynamic> agenciaData =
+        json.containsKey('agencia') ? json['agencia'] : json;
+
     return Agencia(
-      id: json['id'] ?? '',
-      nome: json['nome'] ?? '',
-      endereco: json['endereco'] ?? '',
-      telefone: json['telefone'] ?? '',
-      numeroVeiculos: json['numeroVeiculos'] ?? 0,
-      alugueis: (json['alugueis'] as List)
-          .map((aluguel) => Aluguel.fromJson(aluguel))
-          .toList(),
+      id: agenciaData['id'] ?? '',
+      nome: agenciaData['nome'] ?? '',
+      endereco: agenciaData['endereco'] ?? '',
+      telefone: agenciaData['telefone'] ?? '',
+      numeroVeiculos: agenciaData['numeroVeiculos'] ?? 0,
+      alugueis: (agenciaData['alugueis'] != null)
+          ? (agenciaData['alugueis'] as List)
+              .map((aluguel) => Aluguel.fromJson(aluguel))
+              .toList()
+          : [],
     );
   }
 

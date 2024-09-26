@@ -17,8 +17,36 @@ class ApiServicesAgencias {
       if (kDebugMode) {
         print('Requisição bem-sucedida: ${response.body}');
       }
-      List<dynamic> body = jsonDecode(response.body);
-      return body.map((item) => Agencia.fromJson(item)).toList();
+      List<dynamic> ids = jsonDecode(response.body);
+
+      if (ids.isNotEmpty && ids[0] is String) {
+        List<Agencia> agencias = [];
+        for (String id in ids) {
+          final detalhesResponse =
+              await http.get(Uri.parse('$baseUrl/Agencia/$id'));
+
+          if (detalhesResponse.statusCode == 200) {
+            var body = jsonDecode(detalhesResponse.body);
+
+            // Acessa o objeto "agencia" se existir
+            var agenciaJson =
+                body.containsKey('agencia') ? body['agencia'] : body;
+
+            agencias.add(Agencia.fromJson(agenciaJson));
+          } else {
+            throw Exception(
+                'Falha ao carregar detalhes da agência com ID: $id');
+          }
+        }
+        return agencias;
+      } else {
+        // Se o retorno já for uma lista de agências, converte diretamente
+        return ids.map((item) {
+          var agenciaJson =
+              item.containsKey('agencia') ? item['agencia'] : item;
+          return Agencia.fromJson(agenciaJson);
+        }).toList();
+      }
     } else {
       if (kDebugMode) {
         print('Falha ao carregar agências: ${response.statusCode}');

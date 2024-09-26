@@ -9,6 +9,7 @@ class VeiculoDetalhes {
   final bool automatico;
   final bool disponivelParaAluguel;
   final bool adaptadoParaPCD;
+  final String agenciaId;
 
   VeiculoDetalhes({
     required this.id,
@@ -21,6 +22,7 @@ class VeiculoDetalhes {
     required this.automatico,
     required this.disponivelParaAluguel,
     required this.adaptadoParaPCD,
+    required this.agenciaId,
   });
 
   factory VeiculoDetalhes.fromJson(Map<String, dynamic> json) {
@@ -37,6 +39,7 @@ class VeiculoDetalhes {
       automatico: json['automatico'] ?? false,
       disponivelParaAluguel: json['disponivelParaAluguel'] ?? false,
       adaptadoParaPCD: json['adaptadoParaPCD'] ?? false,
+      agenciaId: json['agenciaId'] ?? '',
     );
   }
 
@@ -52,6 +55,7 @@ class VeiculoDetalhes {
       'automatico': automatico,
       'disponivelParaAluguel': disponivelParaAluguel,
       'adaptadoParaPCD': adaptadoParaPCD,
+      'agenciaId': agenciaId,
     };
   }
 }
