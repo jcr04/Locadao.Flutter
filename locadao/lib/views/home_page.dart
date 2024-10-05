@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart'; // Importe o pacote
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:locadao/views/cliente_create_view.dart';
-import 'package:locadao/views/create_veiculo_view.dart'; // Importe a tela de criação de veículo
+import 'package:locadao/views/create_aluguel_view.dart';
+import 'package:locadao/views/create_veiculo_view.dart';
 import 'package:locadao/views/cliente_list_view.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
 import 'package:locadao/views/agencia_list_view.dart';
@@ -118,15 +119,17 @@ class HomePage extends StatelessWidget {
               );
             },
           ),
-          // Espaço para adicionar mais opções no futuro
-          // SpeedDialChild(
-          //   child: Icon(Icons.more_horiz),
-          //   backgroundColor: Colors.deepPurple,
-          //   label: 'Mais opções',
-          //   onTap: () {
-          //     // Ação futura
-          //   },
-          // ),
+          SpeedDialChild(
+            child: const Icon(Icons.car_rental),
+            backgroundColor: Colors.deepPurple,
+            label: 'Criar Aluguel',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CreateAluguelView()),
+              );
+            },
+          ),
         ],
       ),
     );

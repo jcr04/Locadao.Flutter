@@ -39,17 +39,27 @@ class ApiServicesAluguel {
   }
 
   Future<Aluguel> createAluguel(Aluguel aluguel) async {
+    String requestBody = jsonEncode(aluguel.toJson());
+
+    if (kDebugMode) {
+      print('Enviando dados do aluguel: $requestBody');
+    }
+
     final response = await http.post(
       Uri.parse('$baseUrl/Alugueis'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
-      body: jsonEncode(aluguel.toJson()),
+      body: requestBody,
     );
 
     if (response.statusCode == 201) {
       return Aluguel.fromJson(jsonDecode(response.body));
     } else {
+      if (kDebugMode) {
+        print('Erro ao criar o aluguel: ${response.statusCode}');
+        print('Resposta do servidor: ${response.body}');
+      }
       throw Exception('Falha ao criar o aluguel');
     }
   }

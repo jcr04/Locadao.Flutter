@@ -28,7 +28,6 @@ class ApiServicesAgencias {
           if (detalhesResponse.statusCode == 200) {
             var body = jsonDecode(detalhesResponse.body);
 
-            // Acessa o objeto "agencia" se existir
             var agenciaJson =
                 body.containsKey('agencia') ? body['agencia'] : body;
 
@@ -40,7 +39,6 @@ class ApiServicesAgencias {
         }
         return agencias;
       } else {
-        // Se o retorno já for uma lista de agências, converte diretamente
         return ids.map((item) {
           var agenciaJson =
               item.containsKey('agencia') ? item['agencia'] : item;

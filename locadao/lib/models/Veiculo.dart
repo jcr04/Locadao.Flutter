@@ -3,14 +3,14 @@ class Veiculo {
   final String marca;
   final String modelo;
   final String placa;
-  final String? agencia;
+  final String? agenciaId;
 
   Veiculo({
     required this.id,
     required this.marca,
     required this.modelo,
     required this.placa,
-    this.agencia,
+    this.agenciaId,
   });
 
   factory Veiculo.fromJson(Map<String, dynamic> json) {
@@ -19,7 +19,7 @@ class Veiculo {
       marca: json['marca'] ?? '',
       modelo: json['modelo'] ?? '',
       placa: json['placa'] ?? '',
-      agencia: json['agencia'],
+      agenciaId: json['agenciaId'],
     );
   }
 
@@ -29,7 +29,7 @@ class Veiculo {
       'marca': marca,
       'modelo': modelo,
       'placa': placa,
-      'agencia': agencia,
+      'agenciaId': agenciaId,
     };
   }
 }

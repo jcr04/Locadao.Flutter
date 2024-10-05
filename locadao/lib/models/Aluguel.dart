@@ -8,18 +8,19 @@ class Aluguel {
   final DateTime dataFim;
   final double valor;
   final String status;
-  final Veiculo? veiculo; // Torne-o opcional, pois pode ser null
+  final Veiculo? veiculo;
+  final String veiculoId;
 
-  Aluguel({
-    required this.id,
-    required this.clienteId,
-    required this.agenciaId,
-    required this.dataInicio,
-    required this.dataFim,
-    required this.valor,
-    required this.status,
-    this.veiculo,
-  });
+  Aluguel(
+      {required this.id,
+      required this.clienteId,
+      required this.agenciaId,
+      required this.dataInicio,
+      required this.dataFim,
+      required this.valor,
+      required this.status,
+      this.veiculo,
+      required this.veiculoId});
 
   factory Aluguel.fromJson(Map<String, dynamic> json) {
     return Aluguel(
@@ -33,6 +34,7 @@ class Aluguel {
       status: json['status'] ?? '',
       veiculo:
           json['veiculo'] != null ? Veiculo.fromJson(json['veiculo']) : null,
+      veiculoId: json['veiculoId'] ?? '',
     );
   }
 
@@ -41,11 +43,11 @@ class Aluguel {
       'id': id,
       'clienteId': clienteId,
       'agenciaId': agenciaId,
-      'dataInicio': dataInicio.toIso8601String(),
-      'dataFim': dataFim.toIso8601String(),
+      'dataInicio': dataInicio.toUtc().toIso8601String(),
+      'dataFim': dataFim.toUtc().toIso8601String(),
       'valor': valor,
       'status': status,
-      'veiculo': veiculo?.toJson(),
+      'veiculoId': veiculoId,
     };
   }
 }
