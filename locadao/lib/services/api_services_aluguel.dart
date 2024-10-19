@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:locadao/models/Aluguel.dart';
 
 class ApiServicesAluguel {
-  final String baseUrl = 'https://localhost:7276/api';
+  final String baseUrl = 'https://locadaov3.onrender.com/api';
 
   Future<List<Aluguel>> getAlugueisDisponiveis() async {
     final response = await http.get(Uri.parse('$baseUrl/Alugueis'));

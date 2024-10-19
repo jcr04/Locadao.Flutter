@@ -5,7 +5,7 @@ import 'package:locadao/models/Veiculo.dart';
 import 'package:locadao/models/VeiculoDetalhes.dart';
 
 class ApiServicesVeiculos {
-  final String baseUrl = 'https://localhost:7276/api';
+  final String baseUrl = 'https://locadaov3.onrender.com/api';
 
   Future<List<Veiculo>> getVeiculosDisponiveis() async {
     if (kDebugMode) {

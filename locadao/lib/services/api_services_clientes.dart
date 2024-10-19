@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class ApiServicesClientes {
-  final String baseUrl = 'https://localhost:7276/api';
+  final String baseUrl = 'https://locadaov3.onrender.com/api';
 
   Future<List<Cliente>> getClientesDisponiveis() async {
     final response = await http.get(Uri.parse('$baseUrl/Clientes'));
