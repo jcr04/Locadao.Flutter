@@ -62,8 +62,8 @@ class _AgenciaListViewState extends State<AgenciaListView> {
                         aluguelInfo: agenciaDetalhes.alugueis.isEmpty
                             ? null
                             : agenciaDetalhes.alugueis
-                                .map((aluguel) =>
-                                    _buildAluguelItemInfo(aluguel as Aluguel))
+                                .map(
+                                    (aluguel) => _buildAluguelItemInfo(aluguel))
                                 .join("\n\n"),
                       );
                     },
