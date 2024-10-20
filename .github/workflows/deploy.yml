@@ -2,11 +2,11 @@ name: Deploy Flutter Web App to GitHub Pages
 
 on:
   push:
-    branches: ["main"]  # Substitua pela branch que você deseja monitorar
+    branches: ["main"]  # Adjust this if you're using a different branch
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write    # Updated permission
   pages: write
   id-token: write
 
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable  # Ou o canal que você está usando
+          channel: stable  # Or the channel you're using
 
       - name: Install dependencies
         working-directory: ./locadao
