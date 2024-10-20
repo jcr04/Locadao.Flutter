@@ -1,3 +1,5 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:locadao/models/veiculodetalhes.dart';
 import 'package:locadao/services/api_services_veiculos.dart';
@@ -6,7 +8,7 @@ import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 class VeiculoDetalhesView extends StatelessWidget {
   final String veiculoId;
 
-  VeiculoDetalhesView({required this.veiculoId});
+  const VeiculoDetalhesView({super.key, required this.veiculoId});
 
   @override
   Widget build(BuildContext context) {

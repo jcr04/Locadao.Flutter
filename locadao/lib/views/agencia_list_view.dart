@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:locadao/models/agenciadetalhes.dart';
 import 'package:locadao/models/aluguel.dart';
@@ -6,6 +8,8 @@ import 'package:locadao/widgets/agencia_card_widget.dart';
 import '../controllers/agencia_controller.dart';
 
 class AgenciaListView extends StatefulWidget {
+  const AgenciaListView({super.key});
+
   @override
   _AgenciaListViewState createState() => _AgenciaListViewState();
 }

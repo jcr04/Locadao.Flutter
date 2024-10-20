@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:locadao/models/veiculo.dart';
 import 'package:locadao/services/api_services_veiculos.dart';
@@ -6,6 +8,8 @@ import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 import 'package:locadao/widgets/logo_header.dart';
 
 class VeiculoListView extends StatefulWidget {
+  const VeiculoListView({super.key});
+
   @override
   _VeiculoListViewState createState() => _VeiculoListViewState();
 }

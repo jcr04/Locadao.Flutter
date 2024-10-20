@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:locadao/models/aluguel.dart';
 import 'package:locadao/models/agencia.dart';
 

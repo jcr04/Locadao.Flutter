@@ -66,7 +66,9 @@ class ApiServicesAgencias {
       Map<String, dynamic> body = jsonDecode(response.body);
       return Agencia.fromJson(body);
     } else {
-      print('Falha ao carregar agência: ${response.statusCode}');
+      if (kDebugMode) {
+        print('Falha ao carregar agência: ${response.statusCode}');
+      }
       throw Exception('Falha ao carregar agência');
     }
   }

@@ -1,3 +1,6 @@
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:locadao/controllers/agencia_controller.dart';
 import 'package:locadao/controllers/veiculo_controller.dart';
@@ -6,6 +9,8 @@ import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/models/agencia.dart';
 
 class CreateVeiculoView extends StatefulWidget {
+  const CreateVeiculoView({super.key});
+
   @override
   _CreateVeiculoViewState createState() => _CreateVeiculoViewState();
 }
@@ -47,7 +52,9 @@ class _CreateVeiculoViewState extends State<CreateVeiculoView> {
 
         // Log dos IDs e Nomes das agências
         for (var agencia in _agenciasDisponiveis) {
-          print('Agência carregada: ID=${agencia.id}, Nome=${agencia.nome}');
+          if (kDebugMode) {
+            print('Agência carregada: ID=${agencia.id}, Nome=${agencia.nome}');
+          }
         }
       });
     } catch (e) {

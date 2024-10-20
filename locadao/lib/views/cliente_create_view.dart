@@ -7,6 +7,7 @@ class ClienteCreateView extends StatefulWidget {
   const ClienteCreateView({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ClienteCreateViewState createState() => _ClienteCreateViewState();
 }
 
@@ -46,12 +47,16 @@ class _ClienteCreateViewState extends State<ClienteCreateView> {
       );
 
       try {
+        // ignore: unused_local_variable
         Cliente clienteCriado = await _controller.createCliente(novoCliente);
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Cliente criado com sucesso!')),
         );
+        // ignore: use_build_context_synchronously
         Navigator.pop(context);
       } catch (e) {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Erro ao criar o cliente: $e')),
         );

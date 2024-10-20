@@ -44,7 +44,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AgenciaListView()),
+                            builder: (context) => const AgenciaListView()),
                       );
                     },
                   ),
@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => VeiculoListView()),
+                            builder: (context) => const VeiculoListView()),
                       );
                     },
                   ),
@@ -66,7 +66,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => AluguelListView()),
+                            builder: (context) => const AluguelListView()),
                       );
                     },
                   ),
@@ -77,7 +77,7 @@ class HomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ClienteListView()),
+                            builder: (context) => const ClienteListView()),
                       );
                     },
                   ),
@@ -104,7 +104,8 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => ClienteCreateView()),
+                MaterialPageRoute(
+                    builder: (context) => const ClienteCreateView()),
               );
             },
           ),
@@ -115,7 +116,8 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreateVeiculoView()),
+                MaterialPageRoute(
+                    builder: (context) => const CreateVeiculoView()),
               );
             },
           ),
@@ -126,7 +128,8 @@ class HomePage extends StatelessWidget {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreateAluguelView()),
+                MaterialPageRoute(
+                    builder: (context) => const CreateAluguelView()),
               );
             },
           ),

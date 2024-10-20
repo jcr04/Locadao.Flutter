@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:locadao/controllers/aluguel_controller.dart';
 import 'package:locadao/controllers/cliente_controller.dart';
@@ -11,6 +13,8 @@ import 'package:locadao/widgets/logo_header.dart';
 import 'package:intl/intl.dart';
 
 class CreateAluguelView extends StatefulWidget {
+  const CreateAluguelView({super.key});
+
   @override
   _CreateAluguelViewState createState() => _CreateAluguelViewState();
 }
