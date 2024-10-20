@@ -1,4 +1,4 @@
-import 'package:locadao/models/Veiculo.dart';
+import 'package:locadao/models/veiculo.dart';
 
 class Aluguel {
   final String id;

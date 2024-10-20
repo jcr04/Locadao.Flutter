@@ -1,5 +1,5 @@
 import 'package:locadao/services/api_services_clientes.dart';
-import 'package:locadao/models/Cliente.dart';
+import 'package:locadao/models/cliente.dart';
 
 class ClienteController {
   final ApiServicesClientes _apiService = ApiServicesClientes();

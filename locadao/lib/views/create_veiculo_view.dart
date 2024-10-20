@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/controllers/agencia_controller.dart';
 import 'package:locadao/controllers/veiculo_controller.dart';
-import 'package:locadao/models/VeiculoDetalhes.dart';
+import 'package:locadao/models/veiculodetalhes.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/models/agencia.dart';
 

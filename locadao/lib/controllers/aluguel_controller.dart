@@ -1,5 +1,5 @@
 import 'package:locadao/services/api_services_aluguel.dart';
-import 'package:locadao/models/Aluguel.dart';
+import 'package:locadao/models/aluguel.dart';
 
 class AluguelController {
   final ApiServicesAluguel _apiService = ApiServicesAluguel();

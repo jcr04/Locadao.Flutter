@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:locadao/models/Veiculo.dart';
-import 'package:locadao/models/VeiculoDetalhes.dart';
+import 'package:locadao/models/veiculo.dart';
+import 'package:locadao/models/veiculodetalhes.dart';
 
 class ApiServicesVeiculos {
   final String baseUrl = 'https://locadaov3.onrender.com/api';

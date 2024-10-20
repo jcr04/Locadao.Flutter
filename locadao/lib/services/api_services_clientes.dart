@@ -1,4 +1,4 @@
-import 'package:locadao/models/Cliente.dart';
+import 'package:locadao/models/cliente.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 

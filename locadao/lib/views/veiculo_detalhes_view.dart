@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:locadao/models/VeiculoDetalhes.dart';
+import 'package:locadao/models/veiculodetalhes.dart';
 import 'package:locadao/services/api_services_veiculos.dart';
 import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 

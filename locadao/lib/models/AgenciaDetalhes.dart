@@ -1,4 +1,4 @@
-import 'package:locadao/models/Aluguel.dart';
+import 'package:locadao/models/aluguel.dart';
 import 'package:locadao/models/agencia.dart';
 
 class AgenciaDetalhes {

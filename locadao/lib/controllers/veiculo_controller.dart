@@ -1,6 +1,6 @@
 import 'package:locadao/services/api_services_veiculos.dart';
-import 'package:locadao/models/Veiculo.dart';
-import 'package:locadao/models/VeiculoDetalhes.dart';
+import 'package:locadao/models/veiculo.dart';
+import 'package:locadao/models/veiculodetalhes.dart';
 
 class VeiculoController {
   final ApiServicesVeiculos _apiService = ApiServicesVeiculos();

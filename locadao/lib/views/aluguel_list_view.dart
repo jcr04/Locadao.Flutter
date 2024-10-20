@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/controllers/aluguel_controller.dart';
-import 'package:locadao/models/Aluguel.dart';
+import 'package:locadao/models/aluguel.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 

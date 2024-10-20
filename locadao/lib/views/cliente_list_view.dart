@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:locadao/controllers/cliente_controller.dart';
-import 'package:locadao/models/Cliente.dart';
+import 'package:locadao/models/cliente.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/Vehicle_feature_card_widget.dart';
 
 class ClienteListView extends StatefulWidget {
+  const ClienteListView({super.key});
+
   @override
   _ClienteListViewState createState() => _ClienteListViewState();
 }

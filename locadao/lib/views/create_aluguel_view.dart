@@ -3,10 +3,10 @@ import 'package:locadao/controllers/aluguel_controller.dart';
 import 'package:locadao/controllers/cliente_controller.dart';
 import 'package:locadao/controllers/agencia_controller.dart';
 import 'package:locadao/controllers/veiculo_controller.dart';
-import 'package:locadao/models/Aluguel.dart';
-import 'package:locadao/models/Cliente.dart';
+import 'package:locadao/models/aluguel.dart';
+import 'package:locadao/models/cliente.dart';
 import 'package:locadao/models/agencia.dart';
-import 'package:locadao/models/Veiculo.dart';
+import 'package:locadao/models/veiculo.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:intl/intl.dart';
 

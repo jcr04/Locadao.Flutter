@@ -1,5 +1,5 @@
 import 'package:locadao/services/api_services_agencias.dart';
-import 'package:locadao/models/AgenciaDetalhes.dart';
+import 'package:locadao/models/agenciadetalhes.dart';
 import '../models/agencia.dart';
 
 class AgenciaController {

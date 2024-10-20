@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:locadao/models/AgenciaDetalhes.dart';
-import 'package:locadao/models/Aluguel.dart';
+import 'package:locadao/models/agenciadetalhes.dart';
+import 'package:locadao/models/aluguel.dart';
 import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/agencia_card_widget.dart';
 import '../controllers/agencia_controller.dart';
@@ -62,8 +62,8 @@ class _AgenciaListViewState extends State<AgenciaListView> {
                         aluguelInfo: agenciaDetalhes.alugueis.isEmpty
                             ? null
                             : agenciaDetalhes.alugueis
-                                .map(
-                                    (aluguel) => _buildAluguelItemInfo(aluguel))
+                                .map((aluguel) =>
+                                    _buildAluguelItemInfo(aluguel as Aluguel))
                                 .join("\n\n"),
                       );
                     },

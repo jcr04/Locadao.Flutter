@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:locadao/models/AgenciaDetalhes.dart';
+import 'package:locadao/models/agenciadetalhes.dart';
 import '../models/agencia.dart';
 
 class ApiServicesAgencias {
