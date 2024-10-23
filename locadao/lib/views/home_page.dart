@@ -29,11 +29,10 @@ class HomePage extends StatelessWidget {
           Positioned(
             top: 20, // Ajuste a distância do topo conforme necessário
             left: 20, // Ajuste a distância da esquerda conforme necessário
-            child: Image.asset(
-              'lib/assets/locadao.png',
-              height: 50, // Ajuste o tamanho do logo conforme necessário
-              fit: BoxFit.contain,
-            ),
+            child: Image.asset('lib/assets/locadao.png',
+                height: 150, // Ajuste o tamanho do logo conforme necessário
+                fit: BoxFit.cover,
+                alignment: Alignment.topLeft),
           ),
           Column(
             children: [
