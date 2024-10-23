@@ -61,7 +61,7 @@ class _AluguelListViewState extends State<AluguelListView> {
                         ),
                         child: VehicleFeatureCardWidget(
                           icon: Icons.car_rental,
-                          title: 'Aluguel: ${aluguel.veiculo}',
+                          title: 'Aluguel ID: ${aluguel.id}',
                           subtitle: 'Status: ${aluguel.status}',
                           gradientStartColor: Colors.deepPurple,
                           gradientEndColor: Colors.purple,
