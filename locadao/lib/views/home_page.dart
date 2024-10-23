@@ -7,7 +7,6 @@ import 'package:locadao/views/cliente_list_view.dart';
 import 'package:locadao/views/veiculo_list_view.dart';
 import 'package:locadao/views/agencia_list_view.dart';
 import 'package:locadao/views/aluguel_list_view.dart';
-import 'package:locadao/widgets/logo_header.dart';
 import 'package:locadao/widgets/menu_card_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,7 +15,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final double headerHeight = screenWidth * 0.25;
+    final double headerHeight = screenWidth * 0.10;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,10 +23,13 @@ class HomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          ImageHeaderWidget(
-            imagePath: 'lib/assets/locadao.png',
-            height: headerHeight,
-            backgroundColor: Colors.deepPurple,
+          Container(
+            height: 200, // set your desired height here
+            child: Image.asset(
+              'lib/assets/locadao.png',
+              fit: BoxFit.cover,
+              alignment: Alignment.topCenter,
+            ),
           ),
           Expanded(
             child: Padding(
