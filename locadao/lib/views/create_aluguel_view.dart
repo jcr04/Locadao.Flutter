@@ -292,7 +292,8 @@ class _CreateAluguelViewState extends State<CreateAluguelView> {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.deepPurple,
                             ),
-                            child: const Text('Criar Aluguel'),
+                            child: const Text('Criar Aluguel',
+                                style: TextStyle(color: Colors.white)),
                           ),
                         ],
                       ),

@@ -241,7 +241,8 @@ class _ClienteCreateViewState extends State<ClienteCreateView> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color.fromARGB(255, 89, 71, 121),
                       ),
-                      child: const Text('Criar Cliente'),
+                      child: const Text('Criar Cliente',
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),

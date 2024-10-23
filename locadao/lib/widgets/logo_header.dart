@@ -22,7 +22,7 @@ class ImageHeaderWidget extends StatelessWidget {
         child: Image.asset(
           imagePath,
           fit: BoxFit.contain,
-          // Removemos o parâmetro height para permitir que a imagem se ajuste
+          alignment: Alignment.center,
         ),
       ),
     );

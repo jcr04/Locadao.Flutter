@@ -271,7 +271,8 @@ class _CreateVeiculoViewState extends State<CreateVeiculoView> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.deepPurple,
                       ),
-                      child: const Text('Criar Veículo'),
+                      child: const Text('Criar Veículo',
+                          style: TextStyle(color: Colors.white)),
                     ),
                   ],
                 ),
