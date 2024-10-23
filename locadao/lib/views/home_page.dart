@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    final double headerHeight = screenWidth * 0.10;
 
     return Scaffold(
       appBar: AppBar(
@@ -24,11 +23,11 @@ class HomePage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 200, // set your desired height here
+            height: 200,
             child: Image.asset(
               'lib/assets/locadao.png',
               fit: BoxFit.cover,
-              alignment: Alignment.topCenter,
+              alignment: Alignment.topLeft,
             ),
           ),
           Expanded(
@@ -90,7 +89,6 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
-      // Substituímos o FloatingActionButton pelo SpeedDial
       floatingActionButton: SpeedDial(
         icon: Icons.menu,
         activeIcon: Icons.close,
